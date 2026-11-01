@@ -63,9 +63,6 @@ class Modal extends React.Component<ModalProps, ModalState> {
       maxWidth: '95%',
       overflow: 'auto',
       position: 'absolute',
-      backgroundColor: 'white',
-      boxShadow: '0 10px 20px rgba(0,0,0,0.19), inset 0 0 1px rgba(0,0,0,0.5)',
-      borderRadius: '5px',
     };
     return { modalStyle };
   };

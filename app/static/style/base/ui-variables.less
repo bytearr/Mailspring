@@ -85,7 +85,7 @@
 @text-color-search-match: #fff000;
 @text-color-search-current-match: #ff8b1a;
 
-@font-family-sans-serif: 'Nylas-Pro', 'Helvetica', sans-serif;
+@font-family-sans-serif: system-ui, -apple-system, 'Segoe UI', sans-serif;
 @font-family-serif: Georgia, 'Times New Roman', Times, serif;
 @font-family-monospace: 'DejaVu Sans Mono', Menlo, Monaco, Consolas, 'Courier New', monospace;
 
@@ -150,9 +150,9 @@
 @line-height-large: @line-height-computed * 1.3;
 @line-height-small: @line-height-computed * 0.95;
 
-@border-radius-base: 3px;
-@border-radius-large: 5px;
-@border-radius-small: 2px;
+@border-radius-base: 6px;
+@border-radius-large: 10px;
+@border-radius-small: 4px;
 
 //============================== Shadows ===============================//
 
@@ -239,7 +239,7 @@
 @component-icon-padding: 5px;
 @component-icon-size: 16px;
 @component-line-height: 25px;
-@component-border-radius: 2px;
+@component-border-radius: 6px;
 
 // Helpers for Specs - Do Not Remove
 @spec-test-variable: rgb(152, 123, 0);
@@ -247,3 +247,9 @@
 // Features
 @open-tracking-color: #7c19cc;
 @link-tracking-color: #d43353;
+
+// Shared desktop interaction tokens. Theme-independent geometry and timing.
+@motion-fast: 120ms;
+@motion-normal: 180ms;
+@motion-ease: cubic-bezier(0.2, 0, 0, 1);
+@surface-shadow: 0 12px 36px rgba(0, 0, 0, 0.24);

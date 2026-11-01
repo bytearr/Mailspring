@@ -1,7 +1,8 @@
 import React from 'react';
-import { localized, Utils, DOMUtils, Account, AccountStore } from 'mailspring-exports';
+import { localized, Utils, DOMUtils, Account, AccountStore, Actions } from 'mailspring-exports';
 import { OutlineView, ScrollRegion, Flexbox } from 'mailspring-component-kit';
 import AccountSwitcher from './account-switcher';
+import MailCommandPalette from './mail-command-palette';
 import SidebarStore from '../sidebar-store';
 import { ISidebarSection } from '../types';
 
@@ -67,8 +68,21 @@ export default class AccountSidebar extends React.Component<
 
     return (
       <Flexbox direction="column" style={{ order: 0, flexShrink: 1, flex: 1 }}>
+        <MailCommandPalette />
         <ScrollRegion className="account-sidebar" style={{ order: 2 }}>
           <AccountSwitcher accounts={accounts} sidebarAccountIds={sidebarAccountIds} />
+          <button
+            className="sidebar-compose btn btn-emphasis"
+            onClick={() => Actions.composeNewBlankDraft()}
+          >
+            <span aria-hidden="true">＋</span> {localized('Compose')}
+          </button>
+          <button
+            className="sidebar-commands btn btn-bare"
+            onClick={() => AppEnv.commands.dispatch('window:mail-command-palette')}
+          >
+            {localized('Commands')} <span>⌘ / Ctrl ⇧ P</span>
+          </button>
           <nav className="account-sidebar-sections" aria-label={localized('Mailboxes')}>
             <OutlineView {...standardSection} />
             {this._renderUserSections(userSections)}

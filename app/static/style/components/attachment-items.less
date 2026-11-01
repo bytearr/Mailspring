@@ -10,7 +10,8 @@
   font-size: @font-size-small;
   margin: 0 0 @spacing-standard @spacing-standard;
   width: calc(~'50% - 23px');
-  min-width: 320px;
+  min-width: ~"min(280px, 100%)";
+  max-width: calc(100% - @spacing-standard);
 
   &.file-attachment-item:focus {
     .file-info-wrap,

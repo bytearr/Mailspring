@@ -14,7 +14,7 @@
 
   .participants {
     .unread-true {
-      font-weight: @font-weight-normal;
+      font-weight: @font-weight-semi-bold;
     }
   }
   .subject {
@@ -129,7 +129,8 @@
   }
 
   .list-item {
-    background-color: darken(@background-primary, 2%);
+    background-color: @background-primary;
+    transition: background-color @motion-fast @motion-ease, box-shadow @motion-fast @motion-ease;
     border-bottom: 1px solid fade(@list-border, 60%);
     line-height: 36px;
   }
@@ -559,4 +560,22 @@ body.is-blurred {
   .sheet-toolbar { 
     -webkit-app-region: none;
   }
+}
+.thread-account-indicator {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-inline-end: 8px;
+}
+.thread-list .list-item {
+  &:hover:not(.selected):not(.focused) { background: @list-hover-bg; }
+  &.selected, &.focused { box-shadow: inset 2px 0 @accent-primary; }
+  .timestamp { font-variant-numeric: tabular-nums; font-size: 11px; }
+}
+.thread-list-narrow {
+  .participants { font-size: 13px; font-weight: 500; }
+  .subject { font-size: 13px; }
+  .snippet-and-labels .snippet { font-size: 12px; }
 }

@@ -46,6 +46,12 @@ export default class AccountSwitcher extends React.Component<{
   };
 
   render() {
+    const { accounts, sidebarAccountIds } = this.props;
+    const account =
+      sidebarAccountIds.length === 1
+        ? accounts.find((item) => item.id === sidebarAccountIds[0])
+        : null;
+    const label = account ? account.label : localized('All Accounts');
     return (
       <div
         className="account-switcher"
@@ -53,9 +59,13 @@ export default class AccountSwitcher extends React.Component<{
         tabIndex={0}
         aria-label={localized('Account switcher')}
         aria-haspopup="menu"
-        onMouseDown={this._onShowMenu}
+        onClick={this._onShowMenu}
         onKeyDown={this._onKeyDown}
       >
+        <span className="account-switcher-identity">
+          <strong>{label}</strong>
+          <span>{account ? account.emailAddress : localized('Unified Inbox')}</span>
+        </span>
         <RetinaImg
           style={{ width: 13, height: 14 }}
           name="account-switcher-dropdown.png"

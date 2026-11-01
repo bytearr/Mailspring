@@ -27,7 +27,7 @@ body.platform-win32 {
       border: 0;
 
       &:hover {
-        border-radius: 0;
+        border-radius: @border-radius-base;
         background: darken(@btn-emphasis-bg-color, 10%);
       }
     }
@@ -42,7 +42,7 @@ body.platform-win32 {
       background: @btn-danger-bg-color;
       border: 0;
       &:hover {
-        border-radius: 0;
+        border-radius: @border-radius-base;
         background: darken(@btn-danger-bg-color, 10%);
       }
     }
@@ -52,6 +52,9 @@ body.platform-win32 {
 .btn {
   padding: 0 0.8em;
   border-radius: @border-radius-base;
+  transition: background-color @motion-fast @motion-ease, box-shadow @motion-fast @motion-ease, transform @motion-fast @motion-ease;
+  &:active:not(.disabled):not(:disabled) { transform: translateY(1px); }
+  &:focus-visible { outline: 2px solid @accent-primary; outline-offset: 2px; }
   border: 0;
   cursor: default;
   display: inline-block;
@@ -258,6 +261,9 @@ body.platform-win32 {
   padding: 0;
   border: 0;
   border-radius: @border-radius-base;
+  transition: background-color @motion-fast @motion-ease, box-shadow @motion-fast @motion-ease, transform @motion-fast @motion-ease;
+  &:active:not(.disabled):not(:disabled) { transform: translateY(1px); }
+  &:focus-visible { outline: 2px solid @accent-primary; outline-offset: 2px; }
   background: transparent;
 }
 .btn-ghost {

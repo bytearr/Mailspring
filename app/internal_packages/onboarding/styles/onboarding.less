@@ -11,7 +11,7 @@
 
 .alpha-fade-enter {
   opacity: 0.01;
-  transition: all 0.15s ease-out;
+  transition: opacity 0.15s ease-out;
 }
 
 .alpha-fade-enter.alpha-fade-enter-active {
@@ -19,7 +19,7 @@
 }
 .alpha-fade-exit {
   opacity: 1;
-  transition: all 0.15s ease-in;
+  transition: opacity 0.15s ease-in;
 }
 
 .alpha-fade-exit.alpha-fade-exit-active {
@@ -40,7 +40,7 @@
   }
 
   .page {
-    background-color: #f3f3f3;
+    background-color: @background-primary;
     flex: 1;
   }
 
@@ -83,7 +83,7 @@
   }
 
   .prompt {
-    color: #5d5d5d;
+    color: @text-color-subtle;
     font-size: 1.07em;
     font-weight: 300;
     margin-top: 20px;
@@ -111,14 +111,14 @@
     white-space: pre-wrap;
 
     &.error {
-      color: #a33;
+      color: @color-error;
       user-select: text;
       a {
-        color: #a33;
+        color: @color-error;
       }
     }
     &.empty {
-      color: gray;
+      color: @text-color-very-subtle;
     }
   }
 
@@ -138,13 +138,13 @@
     width: 100%;
     padding: 7px;
     margin-bottom: 8px;
-    background: #fff;
-    color: #333;
+    background: @input-bg;
+    color: @text-color;
     text-align: left;
-    border: 1px solid #aaa;
+    border: 1px solid @input-border-color;
 
     &::-webkit-input-placeholder {
-      color: #c6c6c6;
+      color: @text-color-very-subtle;
     }
 
     &[type='checkbox'] {
@@ -156,7 +156,7 @@
       background: fadeout(@input-bg, 40%);
     }
     &.error {
-      border: 1px solid #a33;
+      border: 1px solid @color-error;
     }
   }
 
@@ -164,13 +164,13 @@
     display: inline-block;
     white-space: nowrap;
     width: 100%;
-    color: #888;
+    color: @text-color-very-subtle;
     text-align: left;
     padding: 3px 0;
   }
 
   label[for='subscribe-check'] {
-    color: black;
+    color: @text-color;
     white-space: inherit;
   }
 
@@ -214,14 +214,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #f3f3f3;
+    background-color: @background-primary;
     opacity: 1;
     transition: opacity 200ms ease-out;
     display: flex;
     flex-direction: column;
     align-items: center;
     .message {
-      color: #444;
+      color: @text-color;
       opacity: 0;
       margin-top: 20px;
       transition: opacity 200ms ease-out;
@@ -312,12 +312,12 @@
     margin-top: 22px;
     padding: 7px 16px;
     background: rgba(0, 0, 0, 0.035);
-    border: 1px solid #d8d8d8;
+    border: 1px solid @border-color-divider;
     border-radius: 15px;
-    color: #555;
+    color: @text-color-subtle;
     strong {
       font-weight: 500;
-      color: #333;
+      color: @text-color;
     }
     a {
       margin-left: 10px;
@@ -343,7 +343,7 @@
     flex: 1;
     padding: 0 20px;
     opacity: 1;
-    border-left: 1px solid #ddd;
+    border-left: 1px solid @border-color-divider;
     overflow: hidden;
     transition: all 400ms ease-in-out;
   }
@@ -393,19 +393,19 @@
     margin-bottom: 14px;
     padding: 14px 18px;
     background: rgba(255, 255, 255, 0.7);
-    border: 1px solid #ddd;
+    border: 1px solid @border-color-divider;
     border-radius: 6px;
     user-select: text;
   }
   .certificate-servers {
-    color: #555;
+    color: @text-color-subtle;
     strong {
       font-weight: 500;
-      color: #333;
+      color: @text-color;
     }
   }
   .certificate-problems {
-    color: #a33;
+    color: @color-error;
     margin: 10px 0;
     padding-left: 20px;
   }
@@ -417,7 +417,7 @@
     font-size: 0.92em;
   }
   dt {
-    color: #888;
+    color: @text-color-very-subtle;
   }
   dd {
     margin: 0;
@@ -463,7 +463,7 @@
   }
 
   .tutorial-container {
-    background-color: #f9f9f9;
+    background-color: @background-secondary;
     display: flex;
     flex-direction: row;
     flex: 1;
@@ -542,7 +542,7 @@
         line-height: 1.85em;
         text-align: left;
         padding: 10px 0;
-        color: #333;
+        color: @text-color;
       }
     }
   }
@@ -598,7 +598,7 @@
 .page.tutorial {
   .footer {
     text-align: center;
-    background-color: #ececec;
+    background-color: @background-secondary;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 1px solid rgba(255, 255, 255, 0.25);
 
@@ -642,9 +642,9 @@ body.platform-win32 {
 // Individual Components
 
 .appearance-mode {
-  background-color: #f7f9f9;
+  background-color: @background-secondary;
   border-radius: 10px;
-  border: 1px solid #c6c7c7;
+  border: 1px solid @border-color-primary;
   text-align: center;
   flex: 1;
   padding: 9px;
@@ -652,7 +652,7 @@ body.platform-win32 {
   margin: 10px;
   margin-top: 0;
   img {
-    background-color: #c6c7c7;
+    background-color: @border-color-primary;
   }
   div {
     margin-top: 10px;
@@ -674,7 +674,7 @@ body.platform-win32 {
   }
   .url-copy-target {
     width: 50%;
-    border: 1px solid #c6c7c7;
+    border: 1px solid @border-color-primary;
     margin: 10px;
     vertical-align: middle;
   }

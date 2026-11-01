@@ -1,7 +1,7 @@
 @import 'ui-variables';
 @import 'ui-mixins';
 
-@count-color: fadeout(@text-color-subtle, 40%);
+@count-color: @text-color-subtle;
 
 .outline-view {
   order: 1;
@@ -25,7 +25,9 @@
     padding-left: @padding-small-horizontal;
     padding-top: @padding-small-horizontal;
     padding-right: @padding-xs-horizontal;
-    letter-spacing: -0.2px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
 
     span:first-child {
       text-overflow: ellipsis;
@@ -85,7 +87,9 @@
     padding-right: @spacing-standard;
     line-height: @line-height-large;
     clear: both;
-    height: 27px;
+    height: 30px;
+    border-radius: @border-radius-base;
+    transition: background-color @motion-fast @motion-ease, color @motion-fast @motion-ease;
 
     // The overflow needs to be `hidden` in order for the name to flex
     // fit within the contained space.
@@ -114,8 +118,10 @@
       font-weight: @font-weight-semi-bold;
       color: @count-color;
       margin-left: @padding-small-horizontal * 0.8;
-      box-shadow: 0 0.5px 0 @count-color, 0 -0.5px 0 @count-color, 0.5px 0 0 @count-color,
-        -0.5px 0 0 @count-color;
+      box-shadow: none;
+      background: fade(@text-color, 7%);
+      border-radius: @border-radius-small;
+      font-variant-numeric: tabular-nums;
     }
     .item-count-box.alt-count {
       color: @source-list-active-bg;

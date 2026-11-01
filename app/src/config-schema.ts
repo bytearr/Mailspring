@@ -100,7 +100,7 @@ export default {
       },
       themes: {
         type: 'array',
-        default: ['ui-light'],
+        default: ['ui-dark'],
         items: {
           type: 'string',
         },

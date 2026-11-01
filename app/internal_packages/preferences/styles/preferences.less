@@ -48,7 +48,7 @@
   }
 
   section {
-    padding-bottom: @padding-base-vertical;
+    padding-bottom: @spacing-standard;
     .item {
       padding-top: @padding-small-vertical;
       padding-bottom: @padding-small-vertical;
@@ -73,7 +73,9 @@
         min-width: 54px;
         max-width: 120px;
         text-align: center;
-        padding-top: 8px;
+        padding-top: 10px;
+        transition: background-color @motion-fast @motion-ease;
+        &:hover { background: @background-secondary; }
 
         &:active {
           img {
@@ -82,9 +84,9 @@
         }
 
         &.active {
-          background: darken(@background-primary, 10%);
+          background: @background-primary;
           border-radius: @border-radius-large @border-radius-large 0 0;
-          box-shadow: @shadow-border;
+          box-shadow: inset 0 2px @accent-primary;
         }
 
         .tab-icon {

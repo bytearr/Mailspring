@@ -1,6 +1,6 @@
 @import 'ui-variables';
 
-@duration: 1s;
+@duration: @motion-normal;
 
 .empty-state {
   position: absolute;
@@ -31,8 +31,8 @@
       color: @text-color-very-subtle;
       margin: 1em;
       margin-bottom: 0;
-      font-size: 2em;
-      font-weight: @font-weight-thin;
+      font-size: 20px;
+      font-weight: @font-weight-medium;
       text-align: center;
 
       .btn {
@@ -67,7 +67,7 @@
         transition: opacity @duration ease-in;
         font-size: 3.5em;
         color: @text-color-subtle;
-        font-weight: @font-weight-thin;
+        font-weight: @font-weight-medium;
       }
     }
   }

@@ -2,7 +2,7 @@
 @import 'ui-mixins';
 
 @message-max-width: 800px;
-@message-spacing: 6px;
+@message-spacing: 12px;
 
 .tag-picker {
   .menu {
@@ -50,24 +50,24 @@ body.platform-win32 {
   #message-list {
     .message-item-wrap {
       .message-item-white-wrap {
-        border-radius: 0;
+        border-radius: @border-radius-base;
       }
     }
     .minified-bundle {
       .num-messages {
-        border-radius: 0;
+        border-radius: @border-radius-base;
       }
       .msg-line {
-        border-radius: 0;
+        border-radius: @border-radius-base;
       }
     }
     .footer-reply-area-wrap {
-      border-radius: 0;
+      border-radius: @border-radius-base;
     }
   }
 
   .sidebar-section {
-    border-radius: 0;
+    border-radius: @border-radius-base;
   }
 }
 
@@ -204,7 +204,7 @@ body.platform-win32 {
   }
 
   .message-subject-wrap {
-    margin: 5px auto 10px auto;
+    margin: 14px auto 18px auto;
     user-select: text;
     line-height: @font-size-large * 1.8;
     display: flex;
@@ -217,7 +217,10 @@ body.platform-win32 {
     flex-shrink: 0;
   }
   .message-subject {
-    font-size: @font-size-large;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.4px;
+    line-height: 1.35;
     color: @text-color;
     margin-right: @spacing-standard;
     overflow-wrap: anywhere;
@@ -262,7 +265,7 @@ body.platform-win32 {
 
     &.ready {
       opacity: 1;
-      transition: opacity 0.1s linear;
+      transition: opacity @motion-normal @motion-ease;
     }
 
     .scroll-region-content-inner {
@@ -466,7 +469,7 @@ body.platform-win32 {
         padding: 0 @spacing-half;
         height: 20px;
         line-height: 10px;
-        border-radius: 0;
+        border-radius: @border-radius-base;
         border-right: 1px solid lighten(@border-color-divider, 6%);
         &:last-child {
           border-right: 0;

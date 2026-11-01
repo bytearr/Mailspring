@@ -8,14 +8,14 @@
 @gray-lighter: darken(@gray-base, 92.5%);
 @white: #0a0a0a;
 
-@accent-primary: var(--system-accent, #58b660);
+@accent-primary: var(--system-accent, #8aafff);
 // @accent-primary-dark falls through to base/ui-variables.less, which derives
 // it from @accent-primary via color-mix (10% darker). Override here only if
 // a different shade is desired for this theme.
 
-@background-primary: #212121;
-@background-off-primary: #212121;
-@background-secondary: #121212;
+@background-primary: #0d0f12;
+@background-off-primary: #12151a;
+@background-secondary: #191d23;
 @background-tertiary: #6d7987;
 
 @border-color-primary: lighten(@background-primary, 10%);
@@ -23,9 +23,9 @@
 @border-color-tertiary: lighten(@background-tertiary, 10%);
 @border-color-divider: @border-color-secondary;
 
-@text-color: #eee;
-@text-color-subtle: fadeout(@text-color, 20%);
-@text-color-very-subtle: fadeout(@text-color, 40%);
+@text-color: #e8eaf0;
+@text-color-subtle: #b4bac5;
+@text-color-very-subtle: #9299a6;
 @text-color-inverse: white;
 @text-color-inverse-subtle: fadeout(@text-color-inverse, 20%);
 @text-color-inverse-very-subtle: fadeout(@text-color-inverse, 50%);
@@ -38,18 +38,18 @@
 
 @btn-default-bg-color: lighten(@background-primary, 5%);
 @btn-border-color: fadeout(@text-color, 65%);
-@dropdown-default-bg-color: #404040;
+@dropdown-default-bg-color: #191d23;
 
-@input-bg: #2e2e2e;
+@input-bg: #12151a;
 @input-border: @border-color-divider;
 
-@list-bg: #333;
-@list-border: #383838;
+@list-bg: #0d0f12;
+@list-border: #292e36;
 @list-selected-color: @text-color-inverse;
 @list-focused-color: @text-color;
 
-@toolbar-background-color: #121212;
-@panel-background-color: #121212;
+@toolbar-background-color: #12151a;
+@panel-background-color: #12151a;
 
 .thread-icon:not(.thread-icon-unread):not(.thread-icon-star) {
   filter: invert(100%);
@@ -98,9 +98,23 @@ img.content-light {
   background: @panel-background-color;
 }
 body.is-blurred .sheet-toolbar-container {
-  background: #000;
+  background: @panel-background-color;
 }
 // macOS keeps the flat toolbar color when the window is blurred.
 body.platform-darwin.is-blurred .sheet-toolbar-container {
   background: @panel-background-color;
 }
+@border-color-primary: #292e36;
+@border-color-secondary: #242931;
+@source-list-inset-bg: #12151a;
+@source-list-active-bg: #202b3d;
+@source-list-active-color: #c6d7ff;
+@list-focused-bg: #202c41;
+@list-focused-border: #47618c;
+@list-selected-bg: #1c2637;
+@list-hover-bg: #191d23;
+@btn-default-bg-color: #191d23;
+@btn-border-color: #343c49;
+@btn-emphasis-bg-color: #a8c4ff;
+@btn-emphasis-text-color: #111927;
+@background-gradient: linear-gradient(#191d23, #191d23);

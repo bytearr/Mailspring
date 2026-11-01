@@ -16,7 +16,15 @@
       width: 100%;
       height: 23px;
       border: 1px solid transparent;
-      box-shadow: @shadow-border;
+      box-shadow: none;
+      border-color: @border-color-primary;
+      border-radius: @border-radius-base;
+      background: @input-bg;
+      transition: border-color @motion-fast @motion-ease, box-shadow @motion-fast @motion-ease;
+      &:focus {
+        border-color: @accent-primary;
+        box-shadow: 0 0 0 2px color-mix(in srgb, @accent-primary 18%, transparent);
+      }
     }
     input.empty {
       text-align: left;
@@ -90,7 +98,7 @@
 
 body.is-blurred {
   .search-bar .menu .header-container input {
-    background: none;
-    box-shadow: @shadow-border;
+    background: @input-bg;
+    box-shadow: none;
   }
 }

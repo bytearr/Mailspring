@@ -19,6 +19,7 @@
   "application:quit": "mod+q",
 
   "window:close": "mod+w",
+  "window:mail-command-palette": "mod+shift+p",
 
   "core:snooze-item": "z",
   "core:print-thread": "mod+p",

@@ -528,6 +528,14 @@ export default class ComposerView extends React.Component<ComposerViewProps, Com
             >
               <DropToAttachCover visible={this.state.isDropping} />
 
+              {AppEnv.isComposerWindow() && (
+                <header className="composer-window-heading">
+                  <span>{localized('New Message')}</span>
+                  <span className="composer-window-account">
+                    {this.props.draft.subject || localized('(No Subject)')}
+                  </span>
+                </header>
+              )}
               <div className="composer-content-wrap">
                 {AppEnv.isComposerWindow() ? (
                   <ScrollRegion className="compose-body-scroll">

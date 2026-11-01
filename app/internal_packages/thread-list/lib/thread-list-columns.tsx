@@ -8,7 +8,14 @@ import {
   InjectedComponentSet,
 } from 'mailspring-component-kit';
 
-import { localized, FocusedPerspectiveStore, Utils, DateUtils, Thread } from 'mailspring-exports';
+import {
+  localized,
+  FocusedPerspectiveStore,
+  Utils,
+  DateUtils,
+  Thread,
+  AccountStore,
+} from 'mailspring-exports';
 
 import { ThreadArchiveQuickAction, ThreadTrashQuickAction } from './thread-list-quick-actions';
 import ThreadListParticipants from './thread-list-participants';
@@ -61,10 +68,26 @@ const getSnippet = function (thread: ThreadWithMessagesMetadata) {
   return null;
 };
 
+const ThreadAccountIndicator = ({ thread }: { thread: Thread }) => {
+  const accounts = AccountStore.accounts();
+  if (accounts.length < 2) return null;
+  const account = accounts.find((item) => item.id === thread.accountId);
+  if (!account) return null;
+  return (
+    <span
+      className="thread-account-indicator"
+      title={account.emailAddress}
+      aria-label={account.emailAddress}
+      style={{ backgroundColor: account.color || 'var(--mail-account-color, #8aafff)' }}
+    />
+  );
+};
+
 const c1 = new ListTabular.Column({
   name: '★',
   resolver: (thread: ThreadWithMessagesMetadata) => {
     return [
+      <ThreadAccountIndicator key="account-indicator" thread={thread} />,
       <ThreadListIcon key="thread-list-icon" thread={thread} />,
       <MailImportantIcon
         key="mail-important-icon"
@@ -214,6 +237,7 @@ const cNarrow = new ListTabular.Column({
         </div>
         <div className="thread-info-column">
           <div className="participants-wrapper">
+            <ThreadAccountIndicator thread={thread} />
             <ThreadListParticipants thread={thread} />
             {pencil}
             <span style={{ flex: 1 }} />
